@@ -1,0 +1,38 @@
+<%- include('./partials/header.ejs') %>
+
+<%- include('./partials/navigation.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <% newusers.forEach(user => { %>
+                    <form action="/Edit_user" method="post">
+                        <input type="text" name="ID" hidden value="<%=  user.id %>">
+                        <div class="form-group">
+                            <label for="" class="form-label"></label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<%= user.name %>" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label"></label>
+                            <input type="text" name="phone" id="phone" class="form-control" value="<%= user.phone %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label"></label>
+                            <input type="email" name="email" id="email" class="form-control" value="<%= user.email %>">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" id="description" class="form-control" rows="2"><%= user.description %></textarea>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <input type="submit" value="Enviar" class="btn btn-primary">
+                        </div>
+                        <% }) %>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %> 

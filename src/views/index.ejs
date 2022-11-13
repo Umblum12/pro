@@ -1,0 +1,27 @@
+<%- include('./partials/header.ejs') %> 
+
+<%- include('./partials/navigation.ejs') %> 
+
+    <title>Contactos</title>
+</head>
+<body>
+    <div class="container">
+       <div class="row">
+        <% userList.forEach(user => { %>
+        <div class="card col-md-3" style="width: 18rem;">
+          <img src="/Img/Perfil-spaidy.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Name : <%= user.name %> </h5>
+            <p class="card-text">phone : <%= user.phone %></p>
+            <p class="card-text">email : <%= user.email %></p>
+            <p class="card-text">description : <%= user.description %></p>
+            <a href="/delete/<%= user.id %>" class="btn btn-primary">Eliminar</a>
+            <a href="/edit_new/<%= user.id %>" class="btn btn-primary">Editar</a>
+          </div>
+        </div>
+        <% }) %>
+       </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %> 
+
